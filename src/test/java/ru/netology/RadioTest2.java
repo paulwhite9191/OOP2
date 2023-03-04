@@ -5,8 +5,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest2 {
-    Radio2 radio = new Radio2(10);
-    Radio2 radio2 = new Radio2();
+    Radio2 radio = new Radio2();
+
+    @Test
+    void shouldSetStation() {
+        Radio2 radio = new Radio2(20);
+        radio.setCurrentStation(15);
+        assertEquals(15, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldSetStation20() {
+        Radio2 radio = new Radio2(20);
+        radio.setCurrentStation(20);
+        assertEquals(0, radio.getCurrentStation());
+    }
 
     @Test
     void shouldChangeStation() {
