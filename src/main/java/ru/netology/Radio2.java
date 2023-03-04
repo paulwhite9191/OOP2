@@ -2,10 +2,10 @@ package ru.netology;
 
 public class Radio2 {
     private int currentStation;
-    private final int minStation = 0;
+    private static final int minStation = 0;
     private int currentVolume;
-    private final int minVolume = 0;
-    private final int maxVolume = 100;
+    private static final int minVolume = 0;
+    private static final int maxVolume = 100;
     private int countStation = 10;
 
     public Radio2() {
