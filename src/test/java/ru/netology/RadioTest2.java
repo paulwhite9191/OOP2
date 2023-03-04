@@ -4,9 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RadioTest {
+class RadioTest2 {
+    Radio2 radio = new Radio2();
 
-    Radio radio = new Radio();
+    @Test
+    void shouldSetStation() {
+        Radio2 radio = new Radio2(20);
+        radio.setCurrentStation(15);
+        assertEquals(15, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldSetStation20() {
+        Radio2 radio = new Radio2(20);
+        radio.setCurrentStation(20);
+        assertEquals(0, radio.getCurrentStation());
+    }
 
     @Test
     void shouldChangeStation() {
@@ -29,9 +42,9 @@ class RadioTest {
 
     @Test
     void shouldNextStation() {
-        radio.setCurrentStation(6);
+        radio.setCurrentStation(9);
         radio.nextStation();
-        assertEquals(7, radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
@@ -50,9 +63,9 @@ class RadioTest {
 
     @Test
     void shouldPrevStation() {
-        radio.setCurrentStation(4);
+        radio.setCurrentStation(9);
         radio.previousStation();
-        assertEquals(3, radio.getCurrentStation());
+        assertEquals(8, radio.getCurrentStation());
     }
 
     @Test
@@ -85,23 +98,23 @@ class RadioTest {
 
     @Test
     void shouldOverMaxVolume1() {
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
     void shouldOverMaxVolume2() {
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
         radio.increaseVolume();
         assertEquals(1, radio.getCurrentVolume());
     }
 
     @Test
     void shouldDecreaseVolume() {
-        radio.setCurrentVolume(6);
+        radio.setCurrentVolume(60);
         radio.decreaseVolume();
-        assertEquals(5, radio.getCurrentVolume());
+        assertEquals(59, radio.getCurrentVolume());
     }
 
     @Test
